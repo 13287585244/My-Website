@@ -720,10 +720,12 @@ html {
 }
 
 .contentList {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
 	margin-top: 50px;
 }
 
 .contentList li {
+	margin: 5px;
 	padding: 20px 10px;
 	border-bottom: 1px dashed #ccc;
 	position: relative;
