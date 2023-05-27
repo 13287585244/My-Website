@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport content = "
+      content="width=device-width ,initial-scale = 1.0"
+    />
+    <title>黄金屋</title>
+    <link rel="stylesheet" type="text/css" href="css/goldenhouse.css" />
+  </head>
+  <body>
+    <div class="box">
+      <div class="qs">快来看看各位名人说些什么吧！</div>
+    </div>
+
+    <section>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </section>
+  </body>
+  <script>
+    // 数据数组
+    let arr = [
+      "李世民：性怀辨慧，非积学不成",
+      "孔子：质胜文则野，文胜质则史。文质彬彬，然后君子",
+      "韩愈：读书患不多，思义患不明。患足已不学，既学患不行",
+      "刘勰：情者文之经，辞者理之纬；经正而后纬成，理定而后辞畅",
+      "韩非子：随时以举事，因资而立功，用万物之能而获利其上",
+      "朱熹：穷理者，欲知事物之所以然，与其所当然者而已",
+      "金缨：志之所趋，无远弗届。穷山距海，不能限也",
+      "李斯：泰山不让土壤，故能成其大；河海不择细流，故能就其深",
+      "傅玄：人之学者，如渴而饮河海也。大饮则大盈，小饮则小盈",
+      "欧阳修：善治病者，必医其受病之处；善救弊者，必塞其起弊之原",
+      "辛弃疾：事未至而预图，则处之常有余,事既至而后计，则应之常不足",
+      "陶行知：我以为好的先生不是教书，不是教学生，乃是教学生学",
+      "王安石：世之奇伟瑰怪、非常之观，常在于险远，而人之所罕至焉",
+      "苏轼：君子以其身之正，知人之不正；以人之不正，知其身之所未正也",
+      "方孝孺：适己而忘人者，人之所弃；克己而利人者，众之所戴",
+      "苏轼：谁道人生无再少？门前流水尚能西！休将白发唱黄鸡",
+      "王国维：然为一学，无不有待于一切他学，亦无不有造于一切他学",
+      "鲁迅：什么是路？就是从没路的地方践踏出来的从只有荆棘的地方开辟出来的",
+    ];
+    function getRandom(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+	
+    let qs = document.querySelector(".qs");
+    let timer = 0;
+    let random = 0;
+		hanshu()
+    timer = setInterval(hanshu, 8000);
+     function hanshu() {
+      let i = 0,
+        timers = 0,
+        str = arr[random];
+      random = getRandom(0, arr.length - 1);
+      //        qs.innerHTML = arr[random];
+      str = arr[random];
+      function typing() {
+        if (i <= str.length) {
+          qs.innerHTML = str.slice(0, i++) + "_";
+          timers = setTimeout(typing, 200);
+        } else {
+          qs.innerHTML = str; //结束打字,移除 _ 光标
+          clearTimeout(timers);
+        }
+      }
+      typing();
+    }
+  </script>
+</html>
